@@ -5,7 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+env:
+  somevar: date +%s
 jobs:
 
   build:
@@ -21,4 +22,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag gnm3000/ptyhon-flask-hello:${{ env.somevar }}
+    - name: Push
+      run: docker push gnm3000/ptyhon-flask-hello:${{ env.somevar }}
+    
