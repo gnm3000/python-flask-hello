@@ -24,5 +24,5 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag gnm3000/ptyhon-flask-hello:${{ env.somevar }}
     - name: Push
-      run: docker push gnm3000/ptyhon-flask-hello:${{ env.somevar }}
+      run: docker push gnm3000/ptyhon-flask-hello
     
