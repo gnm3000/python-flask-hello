@@ -41,3 +41,10 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ github.actor }}/argo-demo-deployment
+          event-type: new-image
+          client-payload: '{"image": "${{ github.repository }}:${{ github.sha }}"}'
