@@ -1,11 +1,5 @@
-FROM debian:buster
-ENV  DEBIAN_FRONTEND noninteractive
-
-RUN  apt-get -q update \
-&& apt-get install -y --no-install-recommends python3-pip python3-dev build-essential \
-&& pip3 install Flask \
-&& pip3 install netifaces \
-&& apt-get purge -y --auto-remove python3-dev build-essential
+FROM python:3.7
+RUN pip3 install Flask netifaces
 
 
 EXPOSE 8080
