@@ -23,7 +23,7 @@ jobs:
         with:
           
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/python-flask-hello:${{ steps.vars.outputs.tag }} , ${{ secrets.DOCKER_HUB_USERNAME }}/python-flask-hello:latest
+          tags: python-flask-hello:latest
           labels: ${{ steps.meta.outputs.labels }}
     
           
