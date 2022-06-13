@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  somevar: date +%s
+  somevar: $(date +%s)
 jobs:
 
   build:
