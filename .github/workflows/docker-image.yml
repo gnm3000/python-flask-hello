@@ -33,10 +33,9 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ./Dockerfile
+          
           push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.sha }}
           labels: ${{ steps.docker_meta.outputs.labels }}
       -
         name: Image digest
