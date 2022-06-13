@@ -29,6 +29,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: tag
+        run: echo ${{ github.repository }}:${{ github.sha }}
       -
         name: Build and push
         uses: docker/build-push-action@v3
@@ -36,7 +38,6 @@ jobs:
           
           push: true
           tags: gnm3000/${{ github.repository }}:${{ github.sha }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
