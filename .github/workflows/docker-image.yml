@@ -30,14 +30,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: tag
-        run: echo ${{ github.repository }}:${{ github.sha }}
+        run: echo ${{ GITHUB_REPOSITORY }}:${{ github.sha }}
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           
           push: true
-          tags: gnm3000/${{ github.repository }}:${{ github.sha }}
+          tags: ${{ GITHUB_REPOSITORY }}:${{ github.sha }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
