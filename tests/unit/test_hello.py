@@ -1,2 +1,6 @@
+from app import get_db
+
+
 def test_ok():
-    assert 1==1
+    documents=get_db("testing").find()
+    assert isinstance(documents,list)
