@@ -3,10 +3,10 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 from pymongo import MongoClient
 from bson.json_util import dumps
-MONGODB_URL="mongodb://adminuser:password123@mongo-nodeport-svc.myapp.svc.cluster.local/?retryWrites=true&w=majority" #prod
 MONGODB_URL="mongodb://localhost:27017/"
 MONGODB_URL="mongodb://adminuser:password123@192.168.49.2:32258/?retryWrites=true&w=majority" # local
 
+MONGODB_URL="mongodb://adminuser:password123@mongo-nodeport-svc.myapp.svc.cluster.local/?retryWrites=true&w=majority" #prod
 import os
 class DB:
     def __init__(self,client):
