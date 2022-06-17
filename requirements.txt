@@ -1,3 +1,6 @@
 flask
 pytest
 pymongo
+pylint
+black
+pytest-cov
